@@ -1,7 +1,15 @@
-<li <%== ' class="active"' if (defined? current and current == 'Comments') %>>
   <% if @order.comments.any? %>
-    <%= link_to_with_icon 'comment', Spree.t(:comments_count, count: @order.comments.count), comments_admin_order_url(@order) %>
+    <li data-hook='admin_order_tabs_customer_details'>
+      <%= link_to_with_icon 'pencil.svg',
+        Spree.t(:comments_count, count: @order.comments.count),
+        comments_admin_order_url(@order),
+        class: "#{'active' if current == 'Comments'} nav-link" %>
+    </li>
   <% else %>
-    <%= link_to_with_icon 'comment', Spree.t(:comments), comments_admin_order_url(@order) %>
+    <li data-hook='admin_order_tabs_customer_details'>
+      <%= link_to_with_icon 'pencil.svg',
+        Spree.t(:comments),
+        comments_admin_order_url(@order),
+        class: "#{'active' if current == 'Comments'} nav-link" %>
+    </li>
   <% end %>
-</li>
