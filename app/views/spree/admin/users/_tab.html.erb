@@ -1,0 +1,15 @@
+  <% if @user.comments.any? %>
+    <li>
+      <%= link_to_with_icon 'pencil.svg',
+        Spree.t(:comments_count, count: @user.comments.count),
+        comments_admin_user_url(@user),
+        class: "nav-link #{'active' if current == 'Comments'}" %>
+    </li>
+  <% else %>
+    <li>
+      <%= link_to_with_icon 'pencil.svg',
+        Spree.t(:comments),
+        comments_admin_user_url(@user),
+        class: "nav-link #{'active' if current == 'Comments'}" %>
+    </li>
+  <% end %>

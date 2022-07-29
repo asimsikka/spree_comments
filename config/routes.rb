@@ -25,6 +25,12 @@ Spree::Core::Engine.add_routes do
        end
       end
     end
+
+    resources :users do
+      member do
+        get :comments
+      end
+    end
   end
 
 #match '/admin/comments' => 'admin/comments', :via => [:get, :post]

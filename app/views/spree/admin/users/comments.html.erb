@@ -1,0 +1,7 @@
+<%= render partial: 'spree/admin/users/sidebar', locals: { current: :comments } %>
+
+<% content_for :page_title do %>
+  <%= @user.email %>
+<% end %>
+
+<%= render 'spree/admin/shared/comments', :commentable => @user %>
