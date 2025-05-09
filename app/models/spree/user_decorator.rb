@@ -1,4 +1,9 @@
-Spree::User.class_eval do
-  # acts_as_commentable
-  has_many :comments, as: :commentable
+module Spree
+  module UserDecorator
+    def self.prepended(base)
+      base.has_many :comments, as: :commentable
+    end
+  end
 end
+
+Spree::User.prepend Spree::UserDecorator

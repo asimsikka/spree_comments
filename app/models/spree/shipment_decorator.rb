@@ -1,4 +1,9 @@
-Spree::Shipment.class_eval do
-  # acts_as_commentable
-  has_many :comments, as: :commentable
+module Spree
+  module ShipmentDecorator
+    def self.prepended(base)
+      base.has_many :comments, as: :commentable
+    end
+  end
 end
+
+Spree::Shipment.prepend Spree::ShipmentDecorator
